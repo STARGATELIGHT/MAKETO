@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "${WORKSPACE}/venv"  // Define the virtual environment directory
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the Git repository
+                git branch: 'main', url: 'https://github.com/your_repo/python_project.git'
+            }
+        }
+
+        stage('Setup') {
+            steps {
+                // Install Python, set up a virtual environment
+                sh 'python3 -m venv ${VENV_DIR}'
+                sh '${VENV_DIR}/bin/pip install --upgrade pip'
+                sh '${VENV_DIR}/bin/pip install -r requirements.txt'
+            }
+        }
