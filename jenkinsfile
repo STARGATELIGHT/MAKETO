@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clone the Git repository
-                git branch: 'main', url: 'https://github.com/your_repo/python_project.git'
+                git branch: 'main', url: 'https://github.com/STARGATELIGHT/MAKETO.git'
             }
         }
 
